@@ -1,0 +1,6 @@
+*.class
+*.log
+bin/
+.DS_Store
+*.jar
+!lib/*.jar
