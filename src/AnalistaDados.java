@@ -20,10 +20,25 @@ public class AnalistaDados extends Colaborador {
      * @return a quantidade efetiva de horas após a operação
      */
     public double addHoraPipeline(double quantidade) {
+        double total = 0.0;
+        if (quantidade <= 0) {
+            return horasPipeline ;
+        }
+        else  {
+        horasPipeline += quantidade ;
+        total = horasPipeline;
+            if (total > MAX_HORAS){
+                horasPipeline = MAX_HORAS;
+        }
+            else{
+                return horasPipeline;
+        }
+        }
+        return horasPipeline;
+    }
         // TODO: se quantidade <= 0, não altera e devolve horasPipeline atual
         // TODO: soma quantidade, sem ultrapassar MAX_HORAS; devolve o novo total
-        return 0.0;
-    }
+
 
     /**
      * Pagamento = salário base + valor das horas de pipeline.
@@ -31,9 +46,12 @@ public class AnalistaDados extends Colaborador {
      */
     @Override
     public double registrarPagamento() {
-        // TODO: calcular total, armazenar, zerar horasPipeline e devolver
-        return 0.0;
+        double valorpago = valorHorasPipeline();
+        ultimoPagamento = valorpago + SALARIO;
+        horasPipeline = 0;
+        return ultimoPagamento;
     }
+     // TODO: calcular total, armazenar, zerar horasPipeline e devolver
 
     @Override
     public String toString() {

@@ -19,8 +19,10 @@ public class CientistaML extends Colaborador {
      * há no máximo TEMPO_BONUS dias (diasAposFinalizacao entre 0 e TEMPO_BONUS, inclusive).
      */
     private double valorBonus() {
-        // TODO: percorrer experimentos e acumular o bônus dos elegíveis
-        return 0.0;
+        double bonus = (SALARIO * BONUS);
+        double valorpago = SALARIO + (bonus * experimentos.size());
+        return valorpago;
+        // TODO: percorrer experimentos e acumular o bônus dos elegívei
     }
 
     /**
@@ -38,8 +40,9 @@ public class CientistaML extends Colaborador {
     /** Pagamento = salário base + valorBonus(); guardar em ultimoPagamento. */
     @Override
     public double registrarPagamento() {
+        ultimoPagamento  = valorBonus();
+        return ultimoPagamento;
         // TODO: calcular total, armazenar em ultimoPagamento e devolver
-        return 0.0;
     }
 
     @Override

@@ -7,13 +7,24 @@ import org.junit.jupiter.api.Test;
  */
 public class ColaboradorTest {
     @Test
-    void exemploEstruturaAaa() {
-        AnalistaDados analista = new AnalistaDados("Ana", "A001");
-        double horas = analista.addHoraPipeline(1.0);
-        assertEquals(0.0, horas, 0.001,
-                "este exemplo só ilustra AAA; substitua pelos seus 2 testes");
+/*ARRANGE*/
+    void testeanalista1() {
+        AnalistaDados analista1 = new AnalistaDados("Pedro", "A100");
+/*ACT */
+        double teste1 = analista1.addHoraPipeline(45);
+        
+/*ASSERT*/
+        assertEquals(teste1 ,35 , "Deve ser 35 horas devido ao limite de tempo imposto sobre a variavel");
+}
+/*ARRANGE*/
+    void testeanalista2() {
+        AnalistaDados analista2 = new AnalistaDados("Manu", "A050");
+/*ACT*/
+    analista2.addHoraPipeline(20);
+    double teste2 = analista2.registrarPagamento();
+/*ASSERT*/
+    assertEquals(teste2, 5250.0, "O valor recebido deve ser 5250 apos a adicao de 20 horas de pipeline" );
     }
-
     // TODO: criar 2 testes unitários (AAA + mensagem na asserção)
     // TODO: um deles deve testar registrarPagamento
 }

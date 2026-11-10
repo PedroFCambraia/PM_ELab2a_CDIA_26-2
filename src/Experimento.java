@@ -23,8 +23,13 @@ public class Experimento {
      * @return -1 se ainda não foi finalizado
      */
     public int diasAposFinalizacao() {
+        if (finalizadoEm == null ){
+            return -1;
+        }
+        else {
+            return (int) ChronoUnit.DAYS.between(finalizadoEm, LocalDate.now());
+        }
         // TODO: se finalizadoEm == null, devolver -1; senão, dias entre finalizadoEm e LocalDate.now()
-        return 0;
     }
 
     public String getNome() { return nome; }
